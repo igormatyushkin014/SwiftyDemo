@@ -1,60 +1,40 @@
 PODS:
   - Alamofire (4.7.2)
   - Direct (1.6)
-  - Moya (11.0.2):
-    - Moya/Core (= 11.0.2)
-  - Moya/Core (11.0.2):
-    - Alamofire (~> 4.1)
-    - Result (~> 3.0)
   - ObjectMapper (3.3.0)
   - PinLayout (1.7.9)
   - Pixels (1.4)
-  - Result (3.2.4)
-  - RxCocoa (4.2.0):
-    - RxSwift (~> 4.0)
-  - RxSwift (4.2.0)
-  - Swifter (1.4.1)
+  - SwiftyJSON (4.1.0)
   - Visuality (5.4.1)
 
 DEPENDENCIES:
   - Alamofire (= 4.7.2)
   - Direct (= 1.6)
-  - Moya (= 11.0.2)
   - ObjectMapper (= 3.3.0)
   - PinLayout (= 1.7.9)
   - Pixels (= 1.4)
-  - RxCocoa (= 4.2.0)
-  - RxSwift (= 4.2.0)
-  - Swifter (= 1.4.1)
+  - SwiftyJSON
   - Visuality (= 5.4.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Direct
-    - Moya
     - ObjectMapper
     - PinLayout
     - Pixels
-    - Result
-    - RxCocoa
-    - RxSwift
-    - Swifter
+    - SwiftyJSON
     - Visuality
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Direct: e00ebfe3715d9bac19533ba71e6548217f4a843d
-  Moya: a725035953bc1c0eb1be505ab903984501d82440
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   PinLayout: 21ce87a865407a7a3c8a38a326611c476095fedf
   Pixels: 283f9341b02b7b5534320b940a92609b6d63d0a1
-  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
-  RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
-  Swifter: 62d14781d34600ffb6be99d350cf271be500600f
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   Visuality: 6ad92baebda9924ca92b2c7ab966140b4e98cf0f
 
-PODFILE CHECKSUM: 6be666eb58d64220fc15a000e0f7f7ff2813fadc
+PODFILE CHECKSUM: 2da8467c9f0032763f7c45ad0d27143438445525
 
 COCOAPODS: 1.5.3
