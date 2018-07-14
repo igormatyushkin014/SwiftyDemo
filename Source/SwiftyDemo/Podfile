@@ -1,0 +1,28 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+workspace '../SwiftyDemo.xcworkspace'
+
+target 'SwiftyDemo' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for SwiftyDemo
+
+  pod 'Visuality', '5.4.1'
+  pod 'Direct', '1.6'
+  pod 'Pixels', '1.4'
+  pod 'Alamofire', '4.7.2'
+  pod 'Moya', '11.0.2'
+  pod 'ObjectMapper', '3.3.0'
+  pod 'RxSwift', '4.2.0'
+  pod 'RxCocoa', '4.2.0'
+  pod 'PinLayout', '1.7.9'
+  pod 'Swifter', '1.4.1'
+
+  target 'SwiftyDemoTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
