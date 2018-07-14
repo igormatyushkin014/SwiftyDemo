@@ -1,5 +1,5 @@
 //
-//  PreLogin.swift
+//  QueryPicker.swift
 //  SwiftyDemo
 //
 //  Created by Igor Matyushkin on 13.07.2018.
@@ -12,10 +12,10 @@ import Direct
 
 extension Scene {
     
-    static var preLogin: Scene {
+    static var queryPicker: Scene {
         get {
-            let signInViewController = SignInViewController.from(nib: .none, inBundle: .main)
-            let navigationController = UINavigationController(rootViewController: signInViewController)
+            let queryPickerViewController = QueryPickerViewController.from(nib: .none, inBundle: .main)
+            let navigationController = UINavigationController(rootViewController: queryPickerViewController)
             return Scene(rootController: navigationController)
         }
     }

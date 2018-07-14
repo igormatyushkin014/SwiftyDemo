@@ -1,5 +1,5 @@
 //
-//  HistoryViewControllerExtensionContent.swift
+//  QueryPickerViewControllerExtensionContent.swift
 //  SwiftyDemo
 //
 //  Created by Igor Matyushkin on 14.07.2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension HistoryViewController {
+extension QueryPickerViewController {
     
     struct Content {
         
@@ -16,7 +16,7 @@ extension HistoryViewController {
             
             static var title: String {
                 get {
-                    return "History"
+                    return "Home"
                 }
             }
             

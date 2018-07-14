@@ -1,5 +1,5 @@
 //
-//  SignInViewController.swift
+//  QueryPickerViewController.swift
 //  SwiftyDemo
 //
 //  Created by Igor Matyushkin on 12.07.2018.
@@ -9,7 +9,7 @@
 import UIKit
 import PinLayout
 
-class SignInViewController: UIViewController {
+class QueryPickerViewController: UIViewController {
     
     // MARK: Class variables & properties
     
@@ -57,9 +57,7 @@ class SignInViewController: UIViewController {
 /*
  * User interface.
  */
-extension SignInViewController {
-    
-    // MARK: Components
+extension QueryPickerViewController {
     
     // MARK: Initialization
     

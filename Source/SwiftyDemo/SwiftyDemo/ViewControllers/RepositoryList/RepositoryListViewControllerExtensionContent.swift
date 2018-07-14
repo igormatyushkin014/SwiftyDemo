@@ -1,5 +1,5 @@
 //
-//  SignInViewControllerExtensionContent.swift
+//  RepositoryListViewControllerExtensionContent.swift
 //  SwiftyDemo
 //
 //  Created by Igor Matyushkin on 14.07.2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension SignInViewController {
+extension RepositoryListViewController {
     
     struct Content {
         
@@ -16,17 +16,7 @@ extension SignInViewController {
             
             static var title: String {
                 get {
-                    return "Sign In"
-                }
-            }
-            
-        }
-        
-        struct SignInButton {
-            
-            static var title: String {
-                get {
-                    return "Sign In"
+                    return "Repositories"
                 }
             }
             

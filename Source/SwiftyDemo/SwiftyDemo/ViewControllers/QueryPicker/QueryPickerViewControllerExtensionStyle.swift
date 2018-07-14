@@ -1,5 +1,5 @@
 //
-//  SignInViewControllerExtensionStyle.swift
+//  QueryPickerViewControllerExtensionStyle.swift
 //  SwiftyDemo
 //
 //  Created by Igor Matyushkin on 14.07.2018.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Pixels
 
-extension SignInViewController {
+extension QueryPickerViewController {
     
     struct Style {
         
@@ -34,10 +34,28 @@ extension SignInViewController {
                 }
             }
             
+            static var leftMargin: CGFloat {
+                get {
+                    return 16.0
+                }
+            }
+            
+            static var rightMargin: CGFloat {
+                get {
+                    return 16.0
+                }
+            }
+            
+            static var height: CGFloat {
+                get {
+                    return 50.0
+                }
+            }
+            
             static var titleAttributes: [NSAttributedStringKey : Any] {
                 get {
                     return [
-                        .font: UIFont.systemFont(ofSize: 36.0, weight: .thin),
+                        .font: UIFont.systemFont(ofSize: 24.0, weight: .light),
                         .foregroundColor: UIColor.Material.Gray._900,
                         .kern: 0.5
                     ]

@@ -1,5 +1,5 @@
 //
-//  HistoryViewController.swift
+//  RepositoryListViewController.swift
 //  SwiftyDemo
 //
 //  Created by Igor Matyushkin on 12.07.2018.
@@ -9,7 +9,7 @@
 import UIKit
 import PinLayout
 
-class HistoryViewController: UIViewController {
+class RepositoryListViewController: UIViewController {
     
     // MARK: Class variables & properties
     
@@ -29,6 +29,23 @@ class HistoryViewController: UIViewController {
     // MARK: Object variables & properties
     
     fileprivate var tableView: UITableView!
+    
+    fileprivate var _query: String?
+    
+    var query: String? {
+        get {
+            return self._query
+        }
+        set {
+            // Save data
+            
+            self._query = newValue
+            
+            // Update storage
+            
+            
+        }
+    }
     
     // MARK: Public object methods
     
@@ -58,7 +75,7 @@ class HistoryViewController: UIViewController {
 /*
  * User interface.
  */
-extension HistoryViewController {
+extension RepositoryListViewController {
     
     // MARK: Initialization
     
@@ -88,7 +105,7 @@ extension HistoryViewController {
 /*
  * Table view's data source and delegate implementation.
  */
-extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
+extension RepositoryListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

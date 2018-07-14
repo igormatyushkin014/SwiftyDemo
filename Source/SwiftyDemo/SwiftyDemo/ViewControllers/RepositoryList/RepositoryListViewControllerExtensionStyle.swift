@@ -1,5 +1,5 @@
 //
-//  HistoryViewControllerExtensionStyle.swift
+//  RepositoryListViewControllerExtensionStyle.swift
 //  SwiftyDemo
 //
 //  Created by Igor Matyushkin on 14.07.2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension HistoryViewController {
+extension RepositoryListViewController {
     
     struct Style {
     }
