@@ -1,5 +1,5 @@
 //
-//  BaseClient.swift
+//  GitHubClient.swift
 //  SwiftyDemo
 //
 //  Created by Igor Matyushkin on 15.07.2018.
@@ -9,7 +9,7 @@
 import Moya
 import Result
 
-class BaseClient {
+class GitHubClient: BaseClient<GitHubService> {
     
     // MARK: Class variables & properties
     
@@ -18,9 +18,6 @@ class BaseClient {
     // MARK: Private class methods
     
     // MARK: Initializers
-    
-    init() {
-    }
     
     // MARK: Deinitializer
     
@@ -31,14 +28,13 @@ class BaseClient {
     
     // MARK: Public object methods
     
+    func searchRepositories(withQuery query: String, completion: @escaping RequestCompletion<[Any]>) -> Cancellable {
+        let target = GitHubService.searchRepositories(query: query)
+        let request = self.request(toTarget: target, withResponseOfType: GitHub_SearchRepositories.self, withCompletion: { (result) in
+        })
+        return request
+    }
+    
     // MARK: Private object methods
-    
-    // MARK: Protocol implementation
-    
-}
-
-extension BaseClient {
-    
-    typealias RequestCompletion<Response> = (_ result: Result<Response, MoyaError>) -> Void
     
 }

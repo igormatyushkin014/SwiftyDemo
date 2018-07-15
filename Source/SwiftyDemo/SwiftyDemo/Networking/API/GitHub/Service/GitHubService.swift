@@ -63,9 +63,3 @@ extension GitHubService: TargetType {
         }
     }
 }
-
-extension Networking.Services {
-    
-    typealias GitHub = GitHubService
-    
-}
