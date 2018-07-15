@@ -22,6 +22,26 @@ extension QueryPickerViewController {
             
         }
         
+        struct SearchButton {
+            
+            static var title: String {
+                get {
+                    return "Search Repositories"
+                }
+            }
+            
+        }
+        
+        struct Search {
+            
+            static var query: String {
+                get {
+                    return "swift"
+                }
+            }
+            
+        }
+        
     }
     
 }

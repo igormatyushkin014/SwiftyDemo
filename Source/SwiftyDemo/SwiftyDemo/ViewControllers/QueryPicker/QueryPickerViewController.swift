@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Visuality
+import Direct
 import PinLayout
 
 class QueryPickerViewController: UIViewController {
@@ -28,7 +30,7 @@ class QueryPickerViewController: UIViewController {
     
     // MARK: Object variables & properties
     
-    fileprivate var signInButton: UIButton!
+    fileprivate var searchButton: UIButton!
     
     // MARK: Public object methods
     
@@ -38,6 +40,7 @@ class QueryPickerViewController: UIViewController {
         // Setup UI
         
         self.setupNavigationBar()
+        self.setupSearchButton()
     }
     
     override func viewDidLayoutSubviews() {
@@ -52,6 +55,13 @@ class QueryPickerViewController: UIViewController {
     
     // MARK: Actions
     
+    @objc
+    internal func searchButtonDidTap() {
+        let repositoryListViewController = RepositoryListViewController.from(nib: .none, inBundle: .main, loadView: true)
+        repositoryListViewController.query = Content.Search.query
+        Navigator.shared.performTransition(.push(viewController: repositoryListViewController, animated: true))
+    }
+    
 }
 
 /*
@@ -65,9 +75,29 @@ extension QueryPickerViewController {
         self.navigationItem.title = Content.NavigationBar.title
     }
     
+    fileprivate func setupSearchButton() {
+        self.searchButton = UIButton(type: .system)
+        
+        self.searchButton.layer.borderColor = Style.SearchButton.borderColor.cgColor
+        self.searchButton.layer.borderWidth = Style.SearchButton.borderWidth
+        self.searchButton.layer.cornerRadius = Style.SearchButton.cornerRadius
+        
+        let attributedTitle = NSAttributedString(string: Content.SearchButton.title, attributes: Style.SearchButton.titleAttributes)
+        self.searchButton.setAttributedTitle(attributedTitle, for: [])
+        
+        self.searchButton.addTarget(self, action: #selector(searchButtonDidTap), for: .touchUpInside)
+        
+        self.view.addSubview(self.searchButton)
+    }
+    
     // MARK: Layout
     
     fileprivate func updateUIElementsPosition() {
+        self.searchButton.pin
+            .left(Style.SearchButton.leftMargin)
+            .right(Style.SearchButton.rightMargin)
+            .vCenter()
+            .height(Style.SearchButton.height)
     }
     
 }

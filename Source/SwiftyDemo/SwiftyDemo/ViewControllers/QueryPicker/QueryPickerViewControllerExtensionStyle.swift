@@ -14,7 +14,7 @@ extension QueryPickerViewController {
     
     struct Style {
         
-        struct SignInButton {
+        struct SearchButton {
             
             static var borderColor: UIColor {
                 get {
