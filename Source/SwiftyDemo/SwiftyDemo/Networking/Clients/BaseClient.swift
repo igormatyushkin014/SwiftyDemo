@@ -6,9 +6,10 @@
 //  Copyright © 2018 Igor Matyushkin. All rights reserved.
 //
 
-import UIKit
+import Moya
+import Result
 
-class BaseClient<API: BaseAPI> {
+class BaseClient {
     
     // MARK: Class variables & properties
     
@@ -19,7 +20,6 @@ class BaseClient<API: BaseAPI> {
     // MARK: Initializers
     
     init() {
-        self.api = API()
     }
     
     // MARK: Deinitializer
@@ -29,12 +29,16 @@ class BaseClient<API: BaseAPI> {
     
     // MARK: Object variables & properties
     
-    fileprivate(set) var api: API
-    
     // MARK: Public object methods
     
     // MARK: Private object methods
     
     // MARK: Protocol implementation
+    
+}
+
+extension BaseClient {
+    
+    typealias RequestCompletion<Response> = (_ result: Result<Response, MoyaError>) -> Void
     
 }
