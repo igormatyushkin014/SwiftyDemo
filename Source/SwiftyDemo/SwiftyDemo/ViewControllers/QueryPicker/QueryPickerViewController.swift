@@ -39,8 +39,8 @@ class QueryPickerViewController: UIViewController {
         
         // Setup UI
         
-        self.setupNavigationBar()
-        self.setupSearchButton()
+        self.initializeNavigationBar()
+        self.initializeSearchButton()
     }
     
     override func viewDidLayoutSubviews() {
@@ -71,11 +71,11 @@ extension QueryPickerViewController {
     
     // MARK: Initialization
     
-    fileprivate func setupNavigationBar() {
+    fileprivate func initializeNavigationBar() {
         self.navigationItem.title = Content.NavigationBar.title
     }
     
-    fileprivate func setupSearchButton() {
+    fileprivate func initializeSearchButton() {
         self.searchButton = UIButton(type: .system)
         
         self.searchButton.layer.borderColor = Style.SearchButton.borderColor.cgColor
