@@ -45,16 +45,16 @@ extension GitHubService: TargetType {
             let parameters: [String : Any] = [
                 "q": query
             ]
-            return Task.requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+            return Task.requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
     }
     
-    var validationType: ValidationType {
+    /*var validationType: ValidationType {
         switch self {
         case .searchRepositories:
             return .none
         }
-    }
+    }*/
     
     var headers: [String : String]? {
         switch self {

@@ -9,5 +9,6 @@
 import Foundation
 
 struct GitHub_Repository: Decodable {
+    var name: String
     var owner: GitHub_RepositoryOwner
 }

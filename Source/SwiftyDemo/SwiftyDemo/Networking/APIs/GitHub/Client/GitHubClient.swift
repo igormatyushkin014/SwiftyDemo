@@ -13,6 +13,10 @@ class GitHubClient: BaseClient<GitHubService> {
     
     // MARK: Class variables & properties
     
+    static let shared = {
+        return GitHubClient()
+    }()
+    
     // MARK: Public class methods
     
     // MARK: Private class methods
@@ -28,10 +32,12 @@ class GitHubClient: BaseClient<GitHubService> {
     
     // MARK: Public object methods
     
-    func searchRepositories(withQuery query: String, completion: @escaping RequestCompletion<[Any]>) -> Cancellable {
+    @discardableResult
+    func searchRepositories(withQuery query: String, completion: @escaping RequestCompletion<GitHub_SearchRepositories>) -> Cancellable {
         let target = GitHubService.searchRepositories(query: query)
-        let request = self.request(toTarget: target, withResponseOfType: GitHub_SearchRepositories.self, withCompletion: { (result) in
-        })
+        let request = self.request(toTarget: target, withResponseOfType: GitHub_SearchRepositories.self) { (response, error) in
+            completion(response, error)
+        }
         return request
     }
     
