@@ -20,11 +20,11 @@ struct Networking {
             
             struct Models {
                 
-                typealias SearchRepositories = GitHub_SearchRepositories
+                typealias SearchRepositories = GitHubSearchRepositoriesModel
                 
-                typealias Repository = GitHub_Repository
+                typealias Repository = GitHubRepositoryModel
                 
-                typealias RepositoryOwner = GitHub_RepositoryOwner
+                typealias RepositoryOwner = GitHubRepositoryOwnerModel
                 
             }
             

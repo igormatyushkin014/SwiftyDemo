@@ -101,7 +101,7 @@ class RepositoryListViewController: UIViewController {
         self.activityIndicatorView.startAnimating()
     }
     
-    fileprivate func handleResponse(with searchResults: GitHub_SearchRepositories?) {
+    fileprivate func handleResponse(with searchResults: GitHubSearchRepositoriesModel?) {
         // Update activity indicator view
         
         self.activityIndicatorView.stopAnimating()
@@ -236,7 +236,7 @@ extension RepositoryListViewController {
     struct TableView {
         
         struct Item {
-            var githubRepository: GitHub_Repository
+            var githubRepository: GitHubRepositoryModel
         }
         
         struct Section {
@@ -246,7 +246,7 @@ extension RepositoryListViewController {
         struct Store {
             var sections: [Section]
             
-            static func from(_ searchResult: GitHub_SearchRepositories) -> Store {
+            static func from(_ searchResult: GitHubSearchRepositoriesModel) -> Store {
                 return Store(
                     sections: [
                         Section(

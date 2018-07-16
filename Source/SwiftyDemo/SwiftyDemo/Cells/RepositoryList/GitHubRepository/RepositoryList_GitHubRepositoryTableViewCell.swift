@@ -48,9 +48,9 @@ class RepositoryList_GitHubRepositoryTableViewCell: BaseTableViewCell {
     
     fileprivate var ownerLoginLabel: UILabel!
     
-    fileprivate var _repository: GitHub_Repository?
+    fileprivate var _repository: GitHubRepositoryModel?
     
-    var repository: GitHub_Repository? {
+    var repository: GitHubRepositoryModel? {
         get {
             return self._repository
         }

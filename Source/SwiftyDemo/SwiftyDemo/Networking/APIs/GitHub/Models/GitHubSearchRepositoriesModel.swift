@@ -1,5 +1,5 @@
 //
-//  GitHub_RepositoryOwner.swift
+//  GitHubSearchRepositoriesModel.swift
 //  SwiftyDemo
 //
 //  Created by Igor Matyushkin on 16.07.2018.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-struct GitHub_RepositoryOwner: Decodable {
-    var login: String
-    var avatar_url: String
+struct GitHubSearchRepositoriesModel: Decodable {
+    var items: [GitHubRepositoryModel]
 }

@@ -33,9 +33,9 @@ class GitHubClient: BaseClient<GitHubService> {
     // MARK: Public object methods
     
     @discardableResult
-    func searchRepositories(withQuery query: String, completion: @escaping RequestCompletion<GitHub_SearchRepositories>) -> Cancellable {
+    func searchRepositories(withQuery query: String, completion: @escaping RequestCompletion<GitHubSearchRepositoriesModel>) -> Cancellable {
         let target = GitHubService.searchRepositories(query: query)
-        let request = self.request(toTarget: target, withResponseOfType: GitHub_SearchRepositories.self) { (response, error) in
+        let request = self.request(toTarget: target, withResponseOfType: GitHubSearchRepositoriesModel.self) { (response, error) in
             completion(response, error)
         }
         return request
