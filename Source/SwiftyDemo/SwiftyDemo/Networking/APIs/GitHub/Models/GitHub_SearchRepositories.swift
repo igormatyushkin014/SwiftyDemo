@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import ObjectMapper
 
 struct GitHub_SearchRepositories: Decodable {
     var items: [GitHub_Repository]

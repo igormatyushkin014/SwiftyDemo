@@ -8,7 +8,6 @@
 
 import Moya
 import Result
-import ObjectMapper
 
 class BaseClient<RequestTarget: TargetType> {
     
