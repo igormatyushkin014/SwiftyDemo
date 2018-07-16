@@ -10,7 +10,6 @@
 		0B9E5F2AE98F8799CD40E8AF /* Pods_SwiftyDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC16A667656FDED7BC14E61 /* Pods_SwiftyDemoTests.framework */; };
 		6973362F20F7EB46000A4FF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6973362E20F7EB46000A4FF8 /* AppDelegate.swift */; };
 		6973363620F7EB4B000A4FF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6973363520F7EB4B000A4FF8 /* Assets.xcassets */; };
-		6973364420F7EB4B000A4FF8 /* SwiftyDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6973364320F7EB4B000A4FF8 /* SwiftyDemoTests.swift */; };
 		6973365B20F80F01000A4FF8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6973365A20F80F01000A4FF8 /* LaunchScreen.xib */; };
 		69BCDE8F20FBDF7900C0D21F /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BCDE8E20FBDF7900C0D21F /* Networking.swift */; };
 		69BCDEA120FC016C00C0D21F /* BaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BCDE9E20FC016C00C0D21F /* BaseClient.swift */; };
@@ -31,6 +30,14 @@
 		69BCDF0220FC173500C0D21F /* GitHub_RepositoryOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BCDEFB20FC173500C0D21F /* GitHub_RepositoryOwner.swift */; };
 		69BCDF0320FC173500C0D21F /* GitHubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BCDEFD20FC173500C0D21F /* GitHubService.swift */; };
 		69BCDF0420FC173500C0D21F /* GitHubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BCDEFF20FC173500C0D21F /* GitHubClient.swift */; };
+		69BCDF0620FC34F600C0D21F /* GitHubClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BCDF0520FC34F600C0D21F /* GitHubClientTest.swift */; };
+		69BCDF0720FC354700C0D21F /* GitHubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BCDEFF20FC173500C0D21F /* GitHubClient.swift */; };
+		69BCDF0820FC359800C0D21F /* BaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BCDE9E20FC016C00C0D21F /* BaseClient.swift */; };
+		69BCDF0920FC35A400C0D21F /* GitHubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BCDEFD20FC173500C0D21F /* GitHubService.swift */; };
+		69BCDF0A20FC35AC00C0D21F /* GitHub_SearchRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BCDEFA20FC173500C0D21F /* GitHub_SearchRepositories.swift */; };
+		69BCDF0B20FC35B000C0D21F /* GitHub_Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BCDEF920FC173500C0D21F /* GitHub_Repository.swift */; };
+		69BCDF0C20FC35B400C0D21F /* GitHub_RepositoryOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BCDEFB20FC173500C0D21F /* GitHub_RepositoryOwner.swift */; };
+		69BCDF0D20FC363500C0D21F /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BCDE8E20FBDF7900C0D21F /* Networking.swift */; };
 		DE4F54A7F34571575DBDC7CC /* Pods_SwiftyDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BBD1C28C641BFE08516E70 /* Pods_SwiftyDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +59,6 @@
 		6973363520F7EB4B000A4FF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6973363A20F7EB4B000A4FF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6973363F20F7EB4B000A4FF8 /* SwiftyDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6973364320F7EB4B000A4FF8 /* SwiftyDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyDemoTests.swift; sourceTree = "<group>"; };
 		6973364520F7EB4B000A4FF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6973365A20F80F01000A4FF8 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		69BCDE8E20FBDF7900C0D21F /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
@@ -74,6 +80,7 @@
 		69BCDEFB20FC173500C0D21F /* GitHub_RepositoryOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHub_RepositoryOwner.swift; sourceTree = "<group>"; };
 		69BCDEFD20FC173500C0D21F /* GitHubService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubService.swift; sourceTree = "<group>"; };
 		69BCDEFF20FC173500C0D21F /* GitHubClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubClient.swift; sourceTree = "<group>"; };
+		69BCDF0520FC34F600C0D21F /* GitHubClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubClientTest.swift; sourceTree = "<group>"; };
 		7E30DA38F0E93CC465E5029F /* Pods-SwiftyDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyDemoTests/Pods-SwiftyDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		81F610AEC927276825643543 /* Pods-SwiftyDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyDemoTests/Pods-SwiftyDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		83BBD1C28C641BFE08516E70 /* Pods_SwiftyDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,7 +145,7 @@
 		6973364220F7EB4B000A4FF8 /* SwiftyDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				6973364320F7EB4B000A4FF8 /* SwiftyDemoTests.swift */,
+				69BCDF0520FC34F600C0D21F /* GitHubClientTest.swift */,
 				6973364520F7EB4B000A4FF8 /* Info.plist */,
 			);
 			path = SwiftyDemoTests;
@@ -482,6 +489,8 @@
 				"${BUILT_PRODUCTS_DIR}/Pixels/Pixels.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/Visuality/Visuality.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -493,6 +502,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pixels.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Visuality.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -533,7 +544,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6973364420F7EB4B000A4FF8 /* SwiftyDemoTests.swift in Sources */,
+				69BCDF0920FC35A400C0D21F /* GitHubService.swift in Sources */,
+				69BCDF0720FC354700C0D21F /* GitHubClient.swift in Sources */,
+				69BCDF0820FC359800C0D21F /* BaseClient.swift in Sources */,
+				69BCDF0D20FC363500C0D21F /* Networking.swift in Sources */,
+				69BCDF0620FC34F600C0D21F /* GitHubClientTest.swift in Sources */,
+				69BCDF0C20FC35B400C0D21F /* GitHub_RepositoryOwner.swift in Sources */,
+				69BCDF0B20FC35B000C0D21F /* GitHub_Repository.swift in Sources */,
+				69BCDF0A20FC35AC00C0D21F /* GitHub_SearchRepositories.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,7 +688,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwiftyDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.visuality.SwiftyDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -686,7 +707,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwiftyDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.visuality.SwiftyDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -702,7 +726,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwiftyDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.visuality.SwiftyDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -719,7 +747,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwiftyDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.visuality.SwiftyDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
