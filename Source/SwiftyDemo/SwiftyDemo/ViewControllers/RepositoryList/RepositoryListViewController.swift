@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Moya
 import PinLayout
 
 class RepositoryListViewController: UIViewController {
@@ -22,13 +23,18 @@ class RepositoryListViewController: UIViewController {
     // MARK: Deinitializer
     
     deinit {
+        self.cancelCurrentRequest()
     }
     
     // MARK: Outlets
     
     // MARK: Object variables & properties
     
+    fileprivate var activityIndicatorView: UIActivityIndicatorView!
+    
     fileprivate var tableView: UITableView!
+    
+    fileprivate var tableViewStore: TableView.Store!
     
     fileprivate var _query: String?
     
@@ -37,25 +43,46 @@ class RepositoryListViewController: UIViewController {
             return self._query
         }
         set {
+            // Assertions for new value
+            
+            assert(newValue != nil, "Query should not be nil")
+            
             // Save data
             
             self._query = newValue
             
-            // Update storage
+            // Cancel current request
             
+            self.cancelCurrentRequest()
             
+            // Prepare UI for next request
+            
+            self.prepareForRequest()
+            
+            // Handle query
+            
+            self.lastRequest = Networking.APIs.GitHub.Client.shared.searchRepositories(withQuery: query!) { (response, error) in
+                self.handleResponse(with: response)
+            }
         }
     }
+    
+    fileprivate var lastRequest: Cancellable?
     
     // MARK: Public object methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setup data
+        
+        self.setupTableViewStore()
+        
         // Setup UI
         
-        self.setupNavigationBar()
-        self.setupTableView()
+        self.initializeNavigationBar()
+        self.initializeTableView()
+        self.initializeActivityIndicatorView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -68,7 +95,44 @@ class RepositoryListViewController: UIViewController {
     
     // MARK: Private object methods
     
+    fileprivate func prepareForRequest() {
+        // Update activity indicator view
+        
+        self.activityIndicatorView.startAnimating()
+    }
+    
+    fileprivate func handleResponse(with searchResults: GitHub_SearchRepositories?) {
+        // Update activity indicator view
+        
+        self.activityIndicatorView.stopAnimating()
+        
+        // Update table view
+        
+        self.tableViewStore = searchResults == nil ? TableView.Store(sections: []) : TableView.Store.from(searchResults!)
+        self.tableView.reloadData()
+    }
+    
+    fileprivate func cancelCurrentRequest() {
+        if self.lastRequest != nil {
+            self.lastRequest!.cancel()
+            self.lastRequest = nil
+        }
+    }
+    
     // MARK: Actions
+    
+}
+
+/*
+ * Data.
+ */
+extension RepositoryListViewController {
+    
+    // MARK: Initialization
+    
+    fileprivate func setupTableViewStore() {
+        self.tableViewStore = TableView.Store(sections: [])
+    }
     
 }
 
@@ -79,15 +143,29 @@ extension RepositoryListViewController {
     
     // MARK: Initialization
     
-    fileprivate func setupNavigationBar() {
+    fileprivate func initializeNavigationBar() {
         self.navigationItem.title = Content.NavigationBar.title
     }
     
-    fileprivate func setupTableView() {
+    fileprivate func initializeTableView() {
         self.tableView = UITableView(frame: .zero, style: .grouped)
+        
+        self.tableView.register(
+            RepositoryList_GitHubRepositoryTableViewCell.self,
+            forCellReuseIdentifier: RepositoryList_GitHubRepositoryTableViewCell.reuseIdentifier()
+        )
+        
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
         self.view.addSubview(self.tableView)
+    }
+    
+    fileprivate func initializeActivityIndicatorView() {
+        self.activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        self.activityIndicatorView.hidesWhenStopped = true
+        self.activityIndicatorView.stopAnimating()
+        self.view.addSubview(self.activityIndicatorView)
     }
     
     // MARK: Layout
@@ -98,6 +176,9 @@ extension RepositoryListViewController {
             .left(self.view.pin.safeArea)
             .right(self.view.pin.safeArea)
             .bottom(self.view.pin.safeArea)
+        
+        self.activityIndicatorView.pin
+            .center()
     }
     
 }
@@ -108,15 +189,20 @@ extension RepositoryListViewController {
 extension RepositoryListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.tableViewStore.sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.tableViewStore.sections[section].items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let githubRepository = self.tableViewStore.sections[indexPath.section].items[indexPath.row].githubRepository
+        
+        let reuseIdentifier = RepositoryList_GitHubRepositoryTableViewCell.reuseIdentifier()
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! RepositoryList_GitHubRepositoryTableViewCell
+        cell.repository = githubRepository
+        return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -136,11 +222,43 @@ extension RepositoryListViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return .leastNonzeroMagnitude
+        return RepositoryList_GitHubRepositoryTableViewCell.height(withParameters: nil, andWidth: .leastNonzeroMagnitude)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+}
+
+extension RepositoryListViewController {
+    
+    struct TableView {
+        
+        struct Item {
+            var githubRepository: GitHub_Repository
+        }
+        
+        struct Section {
+            var items: [Item]
+        }
+        
+        struct Store {
+            var sections: [Section]
+            
+            static func from(_ searchResult: GitHub_SearchRepositories) -> Store {
+                return Store(
+                    sections: [
+                        Section(
+                            items: searchResult.items.map({ (githubRepository) -> Item in
+                                return Item(githubRepository: githubRepository)
+                            })
+                        )
+                    ]
+                )
+            }
+        }
+        
     }
     
 }

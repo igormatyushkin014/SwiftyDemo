@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class RepositoryList_GitHubRepositoryTableViewCell: BaseTableViewCell {
     
@@ -102,28 +103,69 @@ extension RepositoryList_GitHubRepositoryTableViewCell {
     // MARK: Initialization
     
     fileprivate func initializeOwnerThumbnailImageView() {
+        self.ownerThumbnailImageView = UIImageView()
+        self.ownerThumbnailImageView.contentMode = Style.OwnerThumbnailImageView.contentMode
+        self.addSubview(self.ownerThumbnailImageView)
     }
     
     fileprivate func initializeRepositoryNameLabel() {
+        self.repositoryNameLabel = UILabel()
+        self.addSubview(self.repositoryNameLabel)
     }
     
     fileprivate func initializeOwnerLoginLabel() {
+        self.ownerLoginLabel = UILabel()
+        self.addSubview(self.ownerLoginLabel)
     }
     
     // MARK: Configuration
     
     fileprivate func setupOwnerThumbnailImageView(withThumbnailURL thumbnailURL: String) {
+        self.ownerThumbnailImageView.image = nil
+        
+        if let url = URL(string: thumbnailURL) {
+            self.ownerThumbnailImageView.af_setImage(withURL: url)
+        }
     }
     
     fileprivate func setupRepositoryNameLabel(withRepositoryName repositoryName: String) {
+        let text = repositoryName
+        let attributes = Style.RepositoryNameLabel.textAttributes
+        let attributedText = NSAttributedString(string: text, attributes: attributes)
+        self.repositoryNameLabel.attributedText = attributedText
     }
     
     fileprivate func setupOwnerLoginLabel(withOwnerLogin ownerLogin: String) {
+        let text = Content.OwnerLoginLabel.text(forOwnerLogin: ownerLogin)
+        let attributes = Style.OwnerLoginLabel.textAttributes
+        let attributedText = NSAttributedString(string: text, attributes: attributes)
+        self.ownerLoginLabel.attributedText = attributedText
     }
     
     // MARK: Layout
     
     fileprivate func updateUIElementsPosition() {
+        self.ownerThumbnailImageView.pin
+            .left()
+            .marginLeft(Style.OwnerThumbnailImageView.leftMargin)
+            .vCenter()
+            .width(Style.OwnerThumbnailImageView.width)
+            .height(Style.OwnerThumbnailImageView.height)
+        
+        self.repositoryNameLabel.pin
+            .top(to: self.ownerThumbnailImageView.edge.top)
+            .left(to: self.ownerThumbnailImageView.edge.right)
+            .marginLeft(Style.RepositoryNameLabel.leftMargin)
+            .right()
+            .marginRight(Style.RepositoryNameLabel.rightMargin)
+            .height(Style.RepositoryNameLabel.height)
+        
+        self.ownerLoginLabel.pin
+            .top(to: self.repositoryNameLabel.edge.bottom)
+            .marginTop(Style.OwnerLoginLabel.topMargin)
+            .left(to: self.repositoryNameLabel.edge.left)
+            .right(to: self.repositoryNameLabel.edge.right)
+            .height(Style.OwnerLoginLabel.height)
     }
     
 }
