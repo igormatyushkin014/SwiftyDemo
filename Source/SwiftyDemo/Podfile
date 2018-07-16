@@ -5,6 +5,7 @@ workspace '../SwiftyDemo.xcworkspace'
 def app_pods
     pod 'Visuality', '5.4.1'
     pod 'Direct', '1.6'
+    pod 'Hammer', '1.2'
     pod 'Pixels', '1.4'
     pod 'ObjectMapper', '3.3.0'
     pod 'Moya', '11.0.2'
