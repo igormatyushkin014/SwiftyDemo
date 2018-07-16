@@ -35,15 +35,16 @@ class BaseClient<RequestTarget: TargetType> {
     
     // MARK: Public object methods
     
+    @discardableResult
     func request<MappedResponse: Decodable>(toTarget target: RequestTarget, withResponseOfType responseType: MappedResponse.Type, withCompletion completion: @escaping RequestCompletion<MappedResponse>) -> Cancellable {
         let request = self.provider.request(target) { (result) in
             switch result {
             case .success(let response):
                 let mappedResponse = try? response.map(MappedResponse.self)
-                completion(.success(mappedResponse))
+                completion(mappedResponse, nil)
                 break
             case .failure(let error):
-                completion(.failure(error))
+                completion(nil, error)
                 break
             }
         }
@@ -58,6 +59,6 @@ class BaseClient<RequestTarget: TargetType> {
 
 extension BaseClient {
     
-    typealias RequestCompletion<MappedResponse> = (_ result: Result<MappedResponse?, MoyaError>) -> Void
+    typealias RequestCompletion<MappedResponse> = (_ response: MappedResponse?, _ error: MoyaError?) -> Void
     
 }
